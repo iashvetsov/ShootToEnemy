@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Collider[] allColliders;
+
+    private void Awake()
     {
-        
+        allColliders = GetComponentsInChildren<Collider>(true);
+
+        DoRagdoll(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DoRagdoll(bool isRagdoll)
     {
-        
+        GetComponent<Animator>().enabled = !isRagdoll;
     }
 }
