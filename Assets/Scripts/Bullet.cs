@@ -5,6 +5,13 @@ public class Bullet : MonoBehaviour
     Transform target;
 
     public float bulletSpeed = 10f;
+    GameProperties gameProperties;
+    float timeScale = 0.4f;
+
+    private void Start()
+    {
+        gameProperties = GameObject.Find("GameProperties").GetComponent<GameProperties>();
+    }
 
     public void Seek(Transform _target)
     {
@@ -35,7 +42,7 @@ public class Bullet : MonoBehaviour
     private void HitTarget()
     {
         Destroy(gameObject);
-        Time.timeScale = 0.3f;
+        gameProperties.SlowMotion(timeScale);
     }
 
     private void OnCollisionEnter(Collision collision)

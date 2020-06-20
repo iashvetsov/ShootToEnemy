@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class GameProperties : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    float waitSec = 0.5f;
+
+    private void Update()
     {
-        
+        if(Time.timeScale != 1.0f)
+        {
+            StartCoroutine(ResetTimeScale());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SlowMotion(float timeScale)
     {
-        
+        Time.timeScale = timeScale;
+    }
+
+    IEnumerator ResetTimeScale()
+    {
+        yield return new WaitForSeconds(waitSec);
+        Time.timeScale = 1.0f;
     }
 }

@@ -1,15 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    Collider[] allColliders;
-
     private void Awake()
     {
-        allColliders = GetComponentsInChildren<Collider>(true);
-
         DoRagdoll(false);
     }
 
