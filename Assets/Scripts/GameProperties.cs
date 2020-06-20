@@ -14,6 +14,7 @@ public class GameProperties : MonoBehaviour
         }
     }
 
+    //Get Slow motion effect
     public void SlowMotion(float timeScale)
     {
         Time.timeScale = timeScale;

@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
         DoRagdoll(false);
     }
 
+    //Use for Ragdoll Death
     public void DoRagdoll(bool isRagdoll)
     {
         GetComponent<Animator>().enabled = !isRagdoll;

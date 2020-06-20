@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Show info about bullet speed
 public class GameText : MonoBehaviour
 {
     public Shoot shoot;

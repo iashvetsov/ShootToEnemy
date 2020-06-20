@@ -5,7 +5,9 @@ public class Bullet : MonoBehaviour
     Transform target;
 
     public float bulletSpeed = 10f;
+
     GameProperties gameProperties;
+
     float timeScale = 0.4f;
 
     private void Start()
@@ -13,6 +15,7 @@ public class Bullet : MonoBehaviour
         gameProperties = GameObject.Find("GameProperties").GetComponent<GameProperties>();
     }
 
+    //Seek target
     public void Seek(Transform _target)
     {
         target = _target;
@@ -20,6 +23,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
+        //If not a target destroy bullet
         if(target == null)
         {
             Destroy(gameObject);
@@ -35,6 +39,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
+        //Bullet mooving 
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
 
     }
@@ -42,6 +47,7 @@ public class Bullet : MonoBehaviour
     private void HitTarget()
     {
         Destroy(gameObject);
+        //Do slow motion effect
         gameProperties.SlowMotion(timeScale);
     }
 
@@ -49,6 +55,7 @@ public class Bullet : MonoBehaviour
     {
         Character character = collision.gameObject.GetComponentInParent<Character>();
 
+        //Do Enemy Ragdoll
         if(character != null)
         {
             character.DoRagdoll(true);

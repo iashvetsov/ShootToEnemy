@@ -12,6 +12,7 @@ public class Shoot : MonoBehaviour
 
     private void Update()
     {
+        //Shooting
         if (Input.GetMouseButtonDown(0))
         {
             //Find target
@@ -21,6 +22,7 @@ public class Shoot : MonoBehaviour
             foreach(RaycastHit hit in hits)
             {
                 target = hit.collider.transform;
+                //Shooting flag
                 if(hit.collider.tag == "notZombie")
                 {
                     isZombie = false;
@@ -41,6 +43,7 @@ public class Shoot : MonoBehaviour
     {
         GameObject bulletGameObject = Instantiate(bulletPrefab, transform.position, transform.rotation) as GameObject;
         Bullet bullet = bulletGameObject.GetComponent<Bullet>();
+        //Use ScriptableObject
         bullet.bulletSpeed = bulletData.GetBulletSpeed;
 
         if(bullet != null)

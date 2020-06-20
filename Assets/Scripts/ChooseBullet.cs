@@ -9,6 +9,7 @@ public class ChooseBullet : MonoBehaviour
     [SerializeField]
     private Shoot shoot;
 
+    //Apply a new bullet speed
     public void ChooseSpeed()
     {
         shoot.bulletData = bulletData;

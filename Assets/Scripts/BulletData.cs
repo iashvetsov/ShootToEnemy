@@ -6,9 +6,9 @@ using UnityEngine;
 public class BulletData : ScriptableObject
 {
     [SerializeField]
-    private float bulletSpeed;
+    private float bulletSpeed; //speed
     [SerializeField]
-    private string bulletDesc;
+    private string bulletDesc; //description
 
     public float GetBulletSpeed
     {
